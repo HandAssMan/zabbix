@@ -2,6 +2,8 @@
 
 ```mermaid
 erDiagram
+    AGENT2 }|--|{ NODE_1 : access
+    AGENT2 }|--|{ NODE_2 : access
     NGINX }|--|{ MYSQL : places
     MYSQL }|--|{ NODE_1 : contains
     MYSQL }|--|{ NODE_2 : contains
@@ -9,8 +11,6 @@ erDiagram
     HTTP ||..|{ HTTPS : redirect
     WEB }|..|{ HTTPS : access
     WEB ||..|{ HTTP : access
-    AGENT2 }|--|{ NODE_1 : access
-    AGENT2 }|--|{ NODE_2 : access
 ```
 
 ## MYSQL server
