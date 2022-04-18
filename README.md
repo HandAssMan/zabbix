@@ -2,11 +2,13 @@
 
 ```mermaid
 erDiagram
-    NGINX ||--|{ MYSQL : places
-    MYSQL ||--|{ NODE_1 : contains
-    MYSQL ||--|{ NODE_2 : contains
-    NGINX }|..|{ HTTPS : uses
+    NGINX }|--|{ MYSQL : places
+    MYSQL }|--|{ NODE_1 : contains
+    MYSQL }|--|{ NODE_2 : contains
+    NGINX }|..|{ HTTPS : ssl
     HTTP ||..|{ HTTPS : redirect
+    WEB }|..|{ HTTPS : access
+    WEB ||..|{ HTTP : access
 ```
 
 ## MYSQL server
