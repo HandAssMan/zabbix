@@ -6,6 +6,7 @@ erDiagram
     MYSQL ||--|{ NODE_1 : contains
     MYSQL ||--|{ NODE_2 : contains
     NGINX }|..|{ HTTPS : uses
+    HTTP ||..|{ HTTPS : redirect
 ```
 
 ## MYSQL server
