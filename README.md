@@ -2,9 +2,10 @@
 
 ```mermaid
 erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE-ITEM : contains
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+    HTTPS --> NGINX
+    NGINX --> MYSQL
+    NODE_1 --> MYSQL
+    NODE_2 --> MYSQL
 ```
 
 ## MYSQL server
