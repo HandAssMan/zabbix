@@ -237,4 +237,4 @@ erDiagram
      systemctl restart nginx php-fpm
      ```
      
-***ENJOY! ;)***
+***ENJOY! ¯\_(ツ)_/¯***
