@@ -58,9 +58,9 @@
       ```
     - edit next lines
       ```
-      Server=**ip_node1,ip_node1**
-      ServerActive=**ip_node1;ip_node1**
-      Hostname=**hostname_database_server**
+      Server=ip_node1,ip_node1
+      ServerActive=ip_node1;ip_node1
+      Hostname=hostname_database_server
       ```
 7. Restart service and reboot server
   ```
