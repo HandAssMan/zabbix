@@ -79,7 +79,7 @@ erDiagram
    reboot
    ```
 ## Backend nodes (may be one or more)
-    > we have two nodes for example
+   > we have two nodes for example
 
 1. Update server, disable SELinux and install "nano" (optional)
    ```bash
