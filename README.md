@@ -238,5 +238,5 @@ erDiagram
      ```
      
 # ENJOY! ;)
-- [x] #739 Like :)
+- [x] #739
 - [ ] Dislike :(
