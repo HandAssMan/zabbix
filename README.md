@@ -2,9 +2,9 @@
 
 ```mermaid
 erDiagram
+    NGINX }|--|{ MYSQL : places
     AGENT2 }|--|{ NODE_1 : access
     AGENT2 }|--|{ NODE_2 : access
-    NGINX }|--|{ MYSQL : places
     MYSQL }|--|{ NODE_1 : contains
     MYSQL }|--|{ NODE_2 : contains
     NGINX }|..|{ HTTPS : ssl
