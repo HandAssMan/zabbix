@@ -7,8 +7,8 @@ erDiagram
     MYSQL }|--|{ NODE_2 : read_write
     NGINX }|..|{ HTTPS : ssl
     HTTP ||..|{ HTTPS : redirect
-    WEB }|..|{ HTTPS : 443
-    WEB ||..|{ HTTP : 80
+    WEB }|..|{ HTTPS : https
+    WEB ||..|{ HTTP : http
 ```
 
 ## MYSQL server
