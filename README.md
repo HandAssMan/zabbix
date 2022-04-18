@@ -2,9 +2,9 @@
 
 ```mermaid
 erDiagram
-    NGINX }|--|{ MYSQL : read && write
-    MYSQL }|--|{ NODE_1 : read && write
-    MYSQL }|--|{ NODE_2 : read && write
+    NGINX }|--|{ MYSQL : read and write
+    MYSQL }|--|{ NODE_1 : read and write
+    MYSQL }|--|{ NODE_2 : read and write
     NGINX }|..|{ HTTPS : ssl
     HTTP ||..|{ HTTPS : redirect
     WEB }|..|{ HTTPS : 443
