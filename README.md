@@ -18,7 +18,7 @@
     mysql
     ```
     - Create database and users. Since there can be several nodes, users are named like **zabbix_node1**, **zabbix_node2** etc.   
-    ```
+    ```mysql
     create database zabbix character set utf8mb4 collate utf8mb4_bin;
     create user zabbix_node1@ip_node1 identified by 'password';
     grant all privileges on zabbix.* to zabbix@ip_node1;
