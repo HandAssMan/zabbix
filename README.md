@@ -1,5 +1,12 @@
 # Zabbix cluster installation (CentOS_8_Stream, Zabbix_6, MySQL)
 
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+```
+
 ## MYSQL server
 1. Update server, disable SELinux and install "nano" (optional)
    ```bash
