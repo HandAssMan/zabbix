@@ -5,8 +5,6 @@ erDiagram
     NGINX }|--|{ MYSQL : places
     MYSQL }|--|{ NODE_1 : contains
     MYSQL }|--|{ NODE_2 : contains
-    AGENT2 }|--|{ NODE_1 : access
-    AGENT2 }|--|{ NODE_2 : access
     NGINX }|..|{ HTTPS : ssl
     HTTP ||..|{ HTTPS : redirect
     WEB }|..|{ HTTPS : access
