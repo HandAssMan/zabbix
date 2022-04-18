@@ -2,20 +2,14 @@
 
 ```mermaid
 erDiagram
-    NGINX }|--|{ MYSQL : places
-    MYSQL }|--|{ NODE_1 : contains
-    MYSQL }|--|{ NODE_2 : contains
+    NGINX }|--|{ MYSQL : read && write
+    MYSQL }|--|{ NODE_1 
+    MYSQL }|--|{ NODE_2 
     NGINX }|..|{ HTTPS : ssl
     HTTP ||..|{ HTTPS : redirect
-    WEB }|..|{ HTTPS : access
-    WEB ||..|{ HTTP : access
+    WEB }|..|{ HTTPS : 443
+    WEB ||..|{ HTTP : 80
 ```
-
-flowchart LR
-    classDef class1 fill:#3f3,stroke:#333,stroke-width:4px
-    classDef class2 fill:#ff2400,stroke:#333,stroke-width:4px,color:#fff,stroke-dasharray: 12 5
-    
-    A:::class1 --> B:::class2
 
 ## MYSQL server
 1. Update server, disable SELinux and install "nano" (optional)
