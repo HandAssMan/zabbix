@@ -1,11 +1,12 @@
 # Zabbix cluster installation (CentOS_8_Stream, Zabbix_6, MySQL)
 
-flowchart zabbix
-    HTTPS --> NGINX
-    NGINX --> MYSQL
-    NODE_1 --> MYSQL
-    NODE_2 --> MYSQL
-
+```mermaid
+erDiagram
+    NGINX ||--o{ MYSQL : places
+    MYSQL ||--|{ NODE_1 : contains
+    MYSQL ||--|{ NODE_2 : contains
+    NGINX }|..|{ HTTPS : uses
+```
 
 ## MYSQL server
 1. Update server, disable SELinux and install "nano" (optional)
