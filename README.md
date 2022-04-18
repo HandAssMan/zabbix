@@ -17,7 +17,7 @@
     ```
     mysql
     ```
-  - Create database and users
+  - Create database and users. Since there can be several nodes, users are named like **zabbix_node1**, **zabbix_node2** etc.   
     ```
     create database zabbix character set utf8mb4 collate utf8mb4_bin;
     create user zabbix_node1@ip_node1 identified by 'password';
@@ -63,6 +63,58 @@
       Hostname=hostname_database_server
       ```
 7. Restart service and reboot server
+  ```
+  systemctl restart zabbix-agent2
+  reboot
+  ```
+## Backend nodes (may be one or more)
+> we have two nodes for example
+
+1. Update server, disable SELinux and install "nano" (optional)
+  ```
+  dnf update -y
+  sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
+  dnf install nano
+  ```
+2. Install zabbix backend nodes and zabbix-agent2
+  ```
+  drpm -Uvh https://repo.zabbix.com/zabbix/6.0/rhel/8/x86_64/zabbix-release-6.0-1.el8.noarch.rpm
+  dnf clean all
+  yum makecache
+  dnf install zabbix-server-mysql zabbix-selinux-policy zabbix-agent2
+  ```
+3. Add rules for firewall-cmd
+  ```
+  firewall-cmd --add-service={http,https} --permanent
+  firewall-cmd --add-port={10051/tcp,10050/tcp} --permanent
+  firewall-cmd --reload
+  ```
+4. Edit zabbix_server config
+    - open config file
+      ```
+      nano /etc/zabbix/zabbix_server.conf
+      ```
+    - edit next lines
+      ```
+      DBHost=mysql_server_ip
+      DBName=zabbix
+      DBUser=zabbix_node1(2)
+      DBPassword=password
+      HANodeName=name_node1(2)
+      NodeAddress=ip_node1(2):10051
+      ```
+5. Edit zabbix_agent2 config
+    - open config file
+      ```
+      nano /etc/zabbix/zabbix_agent2.conf
+      ```
+    - edit next lines
+      ```
+      Server=ip_node1,ip_node2
+      ServerActive=ip_node1;ip_node2
+      Hostname=hostname_node1(2)
+      ```
+6. Restart service and reboot server
   ```
   systemctl restart zabbix-agent2
   reboot
